@@ -1,0 +1,58 @@
+
+
+
+
+PRODUCER
+=-=-====
+spring:
+  application:
+    name: product-catalog-service
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            type:
+              mapping: one:com.learn.ProductCatalogService.model.Product
+
+CONSUMER
+========
+spring:
+  application:
+    name: rating-service
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer;
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+         json:
+            trusted:
+              packages: '*'
+            type:
+              mapping: one:com.learn.RatingService.model.ProductRating
+
+ CONSUMER with error handling in deserialization
+ ========
+spring:
+  application:
+    name: rating-service
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer;
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring:
+          deserializer:
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
+          json:
+            trusted:
+              packages: '*'
+            type:
+              mapping: one:com.learn.RatingService.model.ProductRating

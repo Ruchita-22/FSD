@@ -1,0 +1,136 @@
+# restartPolicy: Always, OnFailure, and Never
+# strategy : RollingUpdate, Recreate
+# BASIC
+apiVersion: apps/v1
+kind: 
+metadata:
+  name: 
+  labels:
+spec:
+  template:
+    metadata:
+      name: 
+      labels:
+    spec:
+      hostname: 
+      containers:
+        - name: 
+          image: 
+          ports:
+            - containerPort: 
+      restartPolicy:   
+  replicas: 
+  selector: 
+    matchLabels:
+
+---
+# WITH CONFIGMAP AND SECRETS
+apiVersion: apps/v1
+kind: 
+metadata:
+  name: 
+  labels:
+spec:
+  template:
+    metadata:
+      name: 
+      labels:
+    spec:
+      hostname: 
+      containers:
+        - name: 
+          image: 
+          ports:
+            - containerPort: 
+          envFrom:
+           - secretRef:
+                name: SECRET_REF
+           - configMapRef:
+                name: CONFIG_MAP_NAME
+      restartPolicy:   
+  replicas: 
+  selector: 
+    matchLabels:
+
+---
+# WITH CONFIGMAP, SECRET, PVC
+apiVersion: apps/v1
+kind: 
+metadata:
+  name: 
+  labels:
+spec:
+  template:
+    metadata:
+      name: 
+      labels:
+    spec:
+      hostname: 
+      containers:
+        - name: 
+          image: 
+          ports:
+            - containerPort: 
+          envFrom:
+           - secretRef:
+                name: SECRET_REF
+           - configMapRef:
+                name: CONFIG_MAP_NAME
+      restartPolicy:   
+      volumes:
+        - name: VOLUME_NAME
+          persistentVolumeClaim:
+            claimName: CLAIM_NAME
+  replicas: 
+  selector: 
+    matchLabels:
+
+---
+# COMPLETE
+apiVersion: apps/v1
+kind: 
+metadata:
+  name: 
+  labels:
+spec:
+  template:
+    metadata:
+      name: 
+      labels:
+    spec:
+      hostname: 
+      containers:
+        - name: 
+          image: 
+          ports:
+            - containerPort: 
+          readinessProbe:
+            httpGet:
+              path: /api/url
+              port: 
+          livenessProbe:
+            httpGet:
+              path: /api/url
+              port: 
+          envFrom:
+           - secretRef:
+                name: SECRET_REF
+           - configMapRef:
+                name: CONFIG_MAP_NAME
+          resources:
+            requests:
+              memory: " Mi"
+              cpu: " m"
+            limits:
+              memory: " Mi"
+              cpu: " m"
+      restartPolicy:   
+      volumes:
+        - name: VOLUME_NAME
+          persistentVolumeClaim:
+            claimName: CLAIM_NAME
+  replicas: 
+  selector: 
+    matchLabels:
+  strategy:
+    type: 

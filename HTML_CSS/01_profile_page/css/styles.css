@@ -1,0 +1,82 @@
+header{
+    background-color: black;
+    color: orangered;
+    font-weight: bolder;
+    height: 12vh;
+    border-bottom: 2px #ff4500 solid;
+    position: fixed;
+    width: 100%;
+}
+
+
+header h1{
+    padding-top: 0.6em;
+    padding-left: 0.8em;
+    margin: 0;
+}
+
+
+.sectionone{
+
+    text-align: center;
+    background: url(../images/bg1.jpg);
+    background-size: cover;
+    height: 85vh;
+    color: whitesmoke;
+    padding-top: 15vh;
+    background-attachment: fixed;
+}
+
+
+.sectionone img{
+    border-radius: 50%;
+    width: 15vw;
+    height: auto;
+    border: 1px orangered solid;
+    box-shadow: 10px 10px 25px orangered;
+    transition: transform 1s ease-out;
+
+}
+
+.sectionone img:hover{
+    transform: scale(1.5, 1.5);
+}
+
+.sectionone p{
+    width: 60vw;
+    text-align: center;
+    margin: 5vh auto;
+}
+
+
+.sectionone > a{
+
+    display: block;
+    width: 5vw;
+    background-color: orangered;
+    color: cornsilk;
+    border-radius: 10px;
+    margin: 5vh auto;
+    text-decoration: none;
+    padding: .3em;
+    font-size: 1.25em;
+}
+
+
+.sectionone > a:hover{
+
+    background-color:cornsilk;
+    color: rgb(255, 68, 0);
+    border: 2px orangered solid;
+}
+
+
+#sectiontwo{
+    text-align: left;
+    background: url(../images/bg2.jpg);
+    background-size: cover;
+    height: 85vh;
+    color: whitesmoke;
+    padding-top: 15vh;
+
+}

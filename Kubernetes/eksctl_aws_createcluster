@@ -1,0 +1,49 @@
+**create EKS cluster in one node in us-east region**
+
+    eksctl create cluster \
+       --name <clustername> \
+       --nodegroup-name <groupname> \
+       --node-type t2.micro \
+       --nodes 3 \
+       --nodes-min 3 \
+       --nodes-max 5 \
+       --managed \
+       --asg-access \
+       --zones=us-east-1a,us-east-1b
+
+
+**Deleting EKS cluster**
+eksctl delete cluster --name <clustername>
+
+
+Through config file
+======================
+
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: my-cluster
+  region: us-east-1
+
+managedNodeGroups:
+  - name: ng-test1
+    instanceType: t2.micro
+    minSize: 3
+    maxSize: 5
+    desiredCapacity: 3
+availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+
+
+With Yaml
+----------
+eksctl create cluster -f cluster.yaml
+
+
+
+
+**To check k8 clusters configured in your machine**
+
+kubectl config get-contexts
+
+kubectl config use-context <clustername>

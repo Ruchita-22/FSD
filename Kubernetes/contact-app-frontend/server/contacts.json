@@ -1,0 +1,53 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "viratkohli",
+      "email": "vir@icc.com",
+      "mobile": 9999911111,
+      "category": "friends"
+    },
+    {
+      "id": 2,
+      "name": "Rahul",
+      "email": "rah@icc.com",
+      "mobile": 9999922222,
+      "category": "family"
+    },
+    {
+      "id": 3,
+      "name": "bumrah",
+      "email": "bum@icc.com",
+      "mobile": 9999933333,
+      "category": "office"
+    },
+    {
+      "name": "admin",
+      "email": "password",
+      "mobile": "test",
+      "category": "office",
+      "id": 4
+    },
+    {
+      "name": "admin",
+      "email": "password",
+      "mobile": "first",
+      "category": "office",
+      "id": 5
+    },
+    {
+      "name": "test",
+      "email": "test",
+      "mobile": "test",
+      "category": "family",
+      "id": 6
+    },
+    {
+      "name": "dcsad",
+      "email": "asdfasd",
+      "mobile": "adfsd",
+      "category": "friends",
+      "id": 7
+    }
+  ]
+}

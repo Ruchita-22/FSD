@@ -1,0 +1,40 @@
+.add-contact-panel{
+    width: 50vw;
+    margin: 10vh auto;
+
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+}
+
+.add-button{
+    margin-left: auto;
+}
+
+.contact-card{
+    display: flex;
+    flex-direction: column;
+    width: 12vw;
+    max-height: 35vh;
+    padding: 1em;
+    border: 1px solid blue;
+    border-radius: 1em;
+    box-shadow: 5px 5px;
+    align-items: center;
+    margin: 2em;
+}
+
+.cards-panel{
+    display: flex;
+    flex-direction: row wrap;
+    padding: 1em;
+
+}
+
+img{
+    max-width: 6vw;
+}

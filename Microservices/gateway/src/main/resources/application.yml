@@ -1,0 +1,22 @@
+server.port: 8765
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: product_catalog_service
+        uri: lb://product-catalog-service
+        predicates:
+        - Path=/api/products/**
+      - id: inventory_service
+        uri: lb://inventory-service
+        predicates:
+          - Path=/api/inventory/**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true

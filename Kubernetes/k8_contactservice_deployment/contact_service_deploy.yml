@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contactapp
+spec:
+  template:
+    metadata:
+      name: contactservice-pods
+      labels:
+        app: contactservice
+    spec:
+      containers:
+        - name: contact-container 
+          image: srghouse/contactservice-be:1.0
+          ports:
+            - containerPort: 9000
+          envFrom:
+           - secretRef:
+                name: contactservice.secret
+           - configMapRef:
+                name: contactservice.config
+      restartPolicy: Always
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: contactservice
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: contactservice.config 
+data:
+  MONGO_HOST: mongodb-service
+  MONGO_DB: contact_db
+  MONGO_PORT: "27017"
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: contactservice.secret 
+data:
+  MONGO_AUTH_DB: YWRtaW4=
+  MONGO_USER: bW9uZ291c2Vy
+  MONGO_PASSWORD: bW9uZ29wYXNz
+---
+
+# type: "ClusterIP", "ExternalName", "LoadBalancer", "NodePort"
+apiVersion: v1
+kind: Service
+metadata:
+  name: contactapp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 9000
+      nodePort: 30900
+  selector:
+    app: contactservice
+

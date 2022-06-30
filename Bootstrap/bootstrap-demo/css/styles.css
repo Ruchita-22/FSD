@@ -1,0 +1,14 @@
+.bg-light{
+
+    background-color: cadetblue !important;
+}
+
+.navbar-brand img{
+    width: 10vw;
+
+}
+
+
+.navbar-nav{
+    margin-right: auto !important;
+}

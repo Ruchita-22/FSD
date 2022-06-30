@@ -1,0 +1,13 @@
+server.port: 9090
+
+spring:
+  application:
+    name: product-catalog-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+  instance:
+#    hostname: localhost
+    preferIpAddress: true

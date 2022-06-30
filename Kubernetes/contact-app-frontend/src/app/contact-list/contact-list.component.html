@@ -1,0 +1,59 @@
+<!-- expansion panel for adding contacts -->
+<mat-expansion-panel class='add-contact-panel'>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      New Contact
+    </mat-panel-title>
+
+  </mat-expansion-panel-header>
+
+  <!-- form fields for contacts -->
+  <div class="contact-form">
+    <mat-form-field>
+      <input [(ngModel)]='contact.name' matInput placeholder="name">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input [(ngModel)]='contact.email' matInput placeholder="email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [(ngModel)]='contact.mobile' matInput placeholder="mobile">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(ngModel)]='contact.category' placeholder="category">
+        <mat-option value="friends">Friends</mat-option>
+        <mat-option value="family">Family</mat-option>
+        <mat-option value="office">Office</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-fab color="primary" class="add-button" (click)='addContact()'>Add</button>
+
+  </div>
+
+</mat-expansion-panel>
+
+<section class="cards-panel"> 
+<!-- Card layout begins here -->
+<mat-card class="contact-card" *ngFor='let contactOne of contactList'>
+  <mat-card-header>
+    <mat-card-title>{{contactOne.name}}</mat-card-title>
+    <mat-card-subtitle>{{contactOne.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="assets/contact.png" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      <i class="fa fa-envelope" aria-hidden="true"> 
+
+      </i><span> {{contactOne.email}}</span>
+    </p>
+
+    <p>
+      <i class="fa fa-mobile" aria-hidden="true"> </i> {{contactOne.mobile}}</p>
+  </mat-card-content>
+</mat-card>
+
+</section>

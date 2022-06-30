@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.box{
+    height: 80vh;
+    width: 100vw;
+}
+
+.one{
+    background-color: red;
+}
+
+
+.two{
+    background-color: green;
+}
+
+
+.three{
+    background-color: blue;
+}
+
+@media screen and (min-width: 480px){
+    .container{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .box{
+        height: 80vh;
+        width: 45vw;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        flex-wrap: nowrap;
+    }
+
+    .three{
+        display: none;
+    }
+    
+}
+
+
+
+

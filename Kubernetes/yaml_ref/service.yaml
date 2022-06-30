@@ -1,0 +1,14 @@
+# type: "ClusterIP", "ExternalName", "LoadBalancer", "NodePort"
+apiVersion: v1
+kind: 
+metadata:
+  name: 
+  labels:
+spec:
+  type: 
+  ports:
+    - port: 
+      targetPort: 
+      nodePort: 
+  selector:
+    app: 

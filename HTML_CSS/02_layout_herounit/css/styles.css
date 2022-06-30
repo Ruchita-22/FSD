@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:wght@400;600&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.header-container{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+    background-color: black;
+
+}
+
+
+.header-container .branding img{
+    height: 10vh;
+    width: 10vw;
+    background-color: whitesmoke;
+    margin-left: 2vw;
+    padding: 0.5vh .25vw;
+    border-radius: 3px;
+    margin-right: 30vw
+}
+
+
+.nav-links ul{
+    list-style-type: none;
+}
+
+.nav-links ul li{
+    display: inline;
+    margin-right: 2em;
+    
+}
+
+.nav-links ul li a{
+  text-decoration: none;
+  font-weight: bolder;
+  color: orangered;
+
+
+}
+
+.nav-links ul li a:hover{
+    color: cornsilk
+}
+
+
+.enroll{
+
+    background-color: orangered;
+    color: cornsilk;
+
+    border:  1px solid orangered;
+    border-radius: 5px;
+
+    width: 8vw;
+    padding: 0.5em;
+    margin-right: 2vw;
+    font-weight: bold;
+    font-size: 1em;
+
+}
+
+.enroll:hover{
+    background-color:cornsilk;
+    color: orangered;
+    cursor: pointer;
+
+}
+
+
+/* Styling hero unit styling starts */
+.herounit-container{
+    background: url("../images/bg.jpg");
+    height: 85vh;
+}
+
+
+.herounit-mask{
+    height: 85vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.hero-caption{
+    padding-top: 25vh;
+}
+
+
+
+.hero-caption h1{
+    padding-left: 5vw;
+    color: orangered;
+    font-size: 2.5em;
+}
+
+
+.hero-caption h1:nth-child(odd){
+
+    color: cornsilk;
+    font-size: 1.25em;
+
+}
+
+
+
+/* Styling paper layout  starts */
+
+
+.paper-layout-container{
+    background-color: rgba(0,0,0,0.2);
+
+    display: grid;
+    justify-items: center;
+
+
+}
+
+.paper-layout-container > h1{
+    margin: 2em auto;
+    color: orangered;
+    border-radius: 5px;
+    box-shadow: 0 0 25px black ;
+    background-color: black;
+    padding: .25em 1.5em;
+}
+
+.paper-layout-row{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5vw;
+}
+
+.paper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 45vh;
+    width: 18vw;
+    background-color: cornsilk;
+    border-radius: 1em;
+    box-shadow: 5px 5px 30px black;
+
+}
+
+.paper h2{
+    color: orangered;
+ }
+
+.paper img{
+    height: auto;
+    width: 15vw;
+
+}
+
+.paper p{
+    text-align: center;
+    font-size: 0.8em;
+    padding: 0.5em 2em;
+
+}
+
+/* Foorter */
+
+.iconfb{
+    color: blue;
+    font-size: 2em;
+}
+

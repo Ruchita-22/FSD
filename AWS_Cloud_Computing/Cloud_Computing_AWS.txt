@@ -1,0 +1,442 @@
+Cloud Computing
+AWS 
+	- Global Infrastructure
+	- Overview of AWS services
+	- Demo on EC2, S3, IAM
+
+
+
+Virtualization
+--------------
+Process of creating a virtual version of a computer
+- Dedicated amount of CPU, memory and storage
+
+VMware, Oracle Virtual box
+
+Types
+	- Desktop Virtualization
+	- Network Virtualization
+	- Storage Virtualization
+	- Apllication Virtualzation
+
+
+Virtual Machine
+	- Is a computer file - Image
+	- virtual representation of a physical system
+
+
+
+Hypervisor:
+	software that create and runs virtauls machines
+
+	type 1
+		- Directly on hardware
+
+
+	microsoft hyper v
+
+
+	Type 2
+		- run inside the OS
+		 Oracle Virtual box
+
+
+
+Cloud Computing
+----------------
+
+- Delivery of computing services like servers, storage, networking, software analytics to the end users over the interbnet
+
+- On Demand
+- Pay as go model
+- Shared resources
+
+
+resources
+	- Compute
+	- Storage
+	- Network
+	- Analytics
+
+
+
+Benefits
+	- Cost Efficient
+		- Opex
+			- Predict Cost	
+
+	- Scaling /Elasticity
+		- consume on demand
+		- scale up or down
+
+	- High Availibility / Global Reach
+		- Deploy globally in mins
+
+	- Disaster Recovery
+
+	- Agility
+		- using advanced technologies
+		- Spin up infra on demand
+
+	- Security
+
+
+
+
+
+
+
+
+
+On Premise
+	- Capex is High
+	- Maintenance
+	.....
+
+
+Models
+
+	- Deployment models
+		- Public Clouds
+		- private Clouds
+		- hybrid Cloud 
+
+
+AWS, Microsoft Azure, Google Cloud Platform
+
+
+Niche
+	- IBM
+	- Alibaba Cloud
+	- Digital Ocean
+	- Sales force
+
+
+
+- Service Models
+	Iaas
+		- rent infra like servers, Vm, Storage network
+	Paas
+		- Dev to build and host your applications
+	Saas -
+		Office365
+	Faas
+		- Serverless application
+
+
+	Daas- Database as a sevice
+
+
+
+
+
+
+
+
+AWS - Amazon Web Services
+
+	- Broadly Adopted
+	- Global Datacenters
+	- Lots of services - 175+
+
+
+AWS Global Infrastructure
+----------------------
+
+Avalibility Zones - Collection of datacenters
+
+Region - Collection of AZ 
+
+
+Edge Locations
+-------------
+	
+- Datacenter near the end users
+- CloudFront
+
+
+AWS Compute Services
+--------------------
+    
+    - Amazon EC2 - Elastic Comput cloud - EC2
+        instance with resizable capacity( cpu, memory, storage)
+        - instance types
+            - AMI Amazon Machine image
+   
+    - AWS Elastic Bean Stalk
+        - Platforms for scaling and deploy web applications 
+        - Support a list of techs
+        - Handles provisioning, scaling load balancing etc
+    
+    - AWS Lambda
+        - compute without managing servers
+        - enables event driven architecture
+
+
+ECS (Elastic Container service)
+EKS( Elastic Kubernetes service)
+
+
+
+Accessing AWS
+-------------
+
+- AWS Management console - GUI
+- AWS CLI
+
+
+
+ Elastic Compute Cloud - EC2
+        - Vitual Machine with storage in a vpc (virtual private network)
+
+ - AMI - Machine images
+
+  https://aws.amazon.com/ec2/instance-types/
+ - EC2 instance types
+    - general purpose
+    - Compute optimized
+    - memory optimized
+
+- Storage
+  - EBS (Elastic Block store)
+    - like a network drive
+    - one or more EBS drives
+    - delete on termination
+    - scoped in a region
+
+- EFS Elastic file
+    - scoped in multiple regions
+
+
+- VPC
+  - virtual private network
+  - partition
+      - public subnet
+      - private subnet
+
+- Security groups
+  - configure network security
+  - Inbound and outbound rules 
+  
+  
+  Connecting to Instance
+  -----------------------
+
+  connect with ssh 
+  make your key pair file private
+
+  ssh -i "aws_ec2_demo.pem" ec2-user@ec2-xxxxxx3.compute-1.amazonaws.com
+
+
+  sudo yum install httpd
+  sudo systemctl start httpd
+
+  /var/www/html  index.html
+
+
+Using User Data:
+
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1> Server Address : $(hostname) </h1>" > /var/www/html/index.html
+
+
+Secure Copy
+-----------
+scp -i "test.pem" c:/fl1/file1.txt   ec2-user@ec2-3-82-150-140.compute-1.amazonaws.com:~/data
+
+
+Elastic Load Balancer
+---------------------
+
+Application LB - http, https
+Network LB - TCP
+
+
+IAM - Identity Access Management
+--------------------------------
+
+- Control access to resources
+- Authentication
+
+
+
+IAM Principal
+-------------
+Root user
+User
+Groups 
+	- Collection of Permissions
+
+Role:
+	- Permission of AWS services
+
+
+Policies:
+	- Defines the permission
+	- Attached to identity/resource
+	- JSON document
+
+
+
+AWS provide lots of standard policies - Managed Policies
+
+
+Storage Services in AWS
+===========================
+
+S3(Simple storage service)
+--------------------------
+
+- Object Storage
+- Storage Classes 
+- Versioning
+- encrytion
+- Security - Access 
+	- IAM based
+	- Resource based policies
+		- bucket policy
+
+-Buckets - Container to store objects(files)
+
+
+Create a static Website in S3. 
+
+
+EBS
+---
+- Attaching to EC2
+- like network drives
+
+Volumes
+	- SSD
+		- Provisioned IOPs
+		- General purpose
+	- HDD
+		Throuput optimized
+
+
+AWS Snowball
+
+AWS EFS
+
+
+
+ - AWS Elastic Bean Stalk
+        - Platforms for scaling and deploy web applications 
+        - Support a list of techs
+        - Handles provisioning, scaling load balancing etc
+
+
+
+
+
+
+Route 53
+---------
+-- DNS service
+- IP with Domain by creating a A record
+- Buy a domain
+- Routing and filtering
+
+
+CloudWatch
+----------
+Monitoring and observability
+
+CloudFormation
+--------------
+- Infrastructure as code
+- Define template in JSOn/YAML and create resources on AWS using Cloudformation
+
+
+
+
+Integration services
+---------------------
+
+
+SNS - Simple notification service
+================================
+
+Producer --- Topic -- consumers
+			   --
+
+Push Notification
+
+
+SQS - Simple Queue service
+==========================
+
+Producer write to 	Queue  <---- Consumer polls the queue for messages
+
+Pull Service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

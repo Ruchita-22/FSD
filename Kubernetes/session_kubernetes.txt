@@ -1,0 +1,286 @@
+EKS - Elastic Kubernetes Service
+
+Minikube 
+
+
+
+Container Orchestration
+-----------------------
+
+ - Process of automatically deploying and managing containers
+ - scale up and down depending on load
+ - manage connectivity
+
+ - Docker swarm 
+ - Kubernetes
+ - Mesos 
+ - openshift
+
+
+
+ Kubernetes
+    - Supp by major cloud providers
+
+
+    - open source con. Orchestration
+    - automate deployments, scaling, connectivity between containers
+    - Developed by Google - CNCF
+
+    Features
+        - Highly available
+        - Self healing
+        - Load balancing
+        - Autoscaling
+        - config and secret management
+        - Automatic rollouts and Rollback
+
+AWS CLI
+  - interacting with AWS
+  https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+EKS
+    windows  install chocolatey
+    https://chocolatey.org/install#individual
+   eksctl 
+        - for creating k8 cluster in AWS
+https://eksctl.io/introduction/
+
+
+
+Step 1 install AWS CLI
+Step 2 - Configure AWS CLI  
+    aws configure --- command prompt
+
+Step 3 install chocolatey and then eksctl
+Step 4: creating cluster
+================
+eksctl create cluster -f eks-cluster.yml
+
+eksctl delete cluster -f eks-cluster.yml
+
+
+
+
+
+
+Minikube
+    - windows, Ubuntu
+    - Single node cluster
+    - Docker
+
+To start minikube
+- Enable hyperv feature of windows
+- 
+minikube start --driver=hyperv
+
+kubectl
+    - CLI tool for interacting with Kubernetes cluster
+
+https://kubernetes.io/docs/tasks/tools/
+
+To get the k8 config info
+ kubectl config get-contexts
+
+
+
+
+
+Kubernetes Architecture
+-----------------------
+
+Node is a Physical or a virtual machine
+
+cluster
+    - Set of Nodes grouped together
+    - Multiple nodes to share load
+
+
+Master 
+    - K8 is installed
+    - orch of containers on worker nodes
+
+Worker nodes
+
+
+Kubernetes Components
+---------------------
+Master Node: 
+
+ - API server 
+    - fornt end for k8
+    - users, cli talk to api server
+
+- etcd Keystore
+    - dist. db where all the data is stored to manage the cluster
+
+- scheduler
+    - distibuting containers across multiple nodes
+
+- Controller
+    - brain for Orchestration
+    - Notices and responds for changes /when containers go down
+
+
+Worker Node:
+    - Container Runtime
+        - Used to run containers ( Docker, Rokt, Crio)
+
+    - kubelet
+        - responsible for making sure that container/pod are running on nodes as expected
+
+
+K8 OBJECTS
+----------
+
+pod
+replicaset
+deployment
+secrets
+config
+ingress
+statefulsets
+persistence volumes
+services
+
+
+
+PODS
+ ----
+   - k8 does not deploy containers directly in nodes
+   - Containers are encapsulated in a k8 object called pod
+   - pod is a single instance of an application
+   - smallest object in k8
+    
+   - new pods for new instance of application
+   - typically one to one relation with containers
+     
+   Multi-Container pods
+   --------------------
+   - A pod can have multiple containers usually not of same kind
+   - Helper container doing supporting task for an application
+   - can communicate directly and share same storage space space
+   
+* Deploying pods
+    - kubectl run nginx --image nginx
+    
+    - List pods
+        - kubectl get pods 
+        - kubectl get pods -o wide
+         kubectl logs pod/podname
+   
+    - Detailed information of pods
+        - kubectl describe pods
+ 
+  kubectl delete pod podname
+
+  Accessing locally by forwarding port
+    kubectl port-forward pod/podname hostport:podport
+
+ Imperative way 
+    using Common line tools 
+ 
+ Creating POD with yaml - Declarative way
+ ----------------------------------------          
+ 
+ apiVersion: (  v1,              )
+ 
+ kind: (type pf object) pod, replicaset, service, deployment 
+ 
+ metadata: (meta information of k8 objects, grouping of objects for filtering)
+    name: app-pod
+    labels:
+        app: myapp
+        type: front-end
+ spec: 
+    containers:  (List/Array)
+        - name: nginx-container
+          image: nginx
+ 
+ 
+ * kubectl create/apply -f pod-definition.yml
+ * kubectl get pods
+
+
+replicaset
+-----------
+- Helps to run multiple instances of a single podname
+- help maintain the number of pods
+
+kubectl create/apply -f rs-definition.yml
+kubectl get rs nginx-rs -o yaml
+
+kubectl scale --replicas=2 -f .\nginx-replicset.yaml
+
+-----------
+Deployments
+-----------
+    - many instances/versions of an application
+    - Upgrade to new versions   
+        - Strategy:
+            - recreate
+            - Rolling Update
+    - Rollback recent changes
+    - Changes in ebvironment
+        - upgrading the web server versions
+        - scaling
+        - Modifying resource allocations
+
+        kubectl rollout status deployment/name
+        kubectl rollout history deployment/name 
+
+        A deployment, create a replicaset automatically.
+            On upgrade,
+                new rs is created where containers
+                are deployed and takes down older containers
+            
+            Rollback
+            
+            kubectl rollout undo deployment/name
+
+Services:
+ - Enable communication betwn various components of k8s
+ - connect app with end users outside the cluster
+ - help load balance between the available pods
+   ex - comm between front end and backend pods, with an external datasource
+
+
+Service Types:
+
+    - ClusterIP
+        - enable communication between k8 objects within the cluster
+    
+            A FSD app will have multiple pods running in diff layers
+            the Frront end servers need to connect the backend and back end to the db servers
+            
+            pods IP are not static so internal application cannot rely on ip for communication
+            
+            K8 service helps to group the pods and provide a single interface.
+            
+            Service can be accesses by other pods using the cluster ip or the service name
+
+    - NodePort
+        - External communication with the pods/service
+        - listen to port on node and forward to port on pod
+
+        types of ports from service viewpoint
+            - port on the pod - target port
+            - port on the service - port
+            - port on the node    - node port
+                (30000 to 32767 valid ports)
+            mandatory is port
+            (by default target port is same as port and nodeport is allocated based on availibilty)  
+
+    - LoadBalancer
+         - to distribute load across diff web servers in front end tier
+
+
+
+Configuration:
+
+    q
+    secret
+
+    - used to pass config data in form of key valaue pairs
+    - manage env by storing config info centrally
+
+- create as a object in K8 and inject it in the pod

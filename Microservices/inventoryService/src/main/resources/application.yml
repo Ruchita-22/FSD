@@ -1,0 +1,12 @@
+server.port: 9095
+
+spring:
+  application:
+    name: inventory-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+  instance:
+    preferIpAddress: true
