@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <bean id="emp" class="com.ibm.SpringCore.Employee">
+   	   <property name="name" value="ram" />
+   	   <property name="address" ref="add" />
+   </bean>
+   
+   <bean id="emp1" class="com.ibm.SpringCore.Employee">
+   	<constructor-arg name="name" value="ravi"></constructor-arg>
+   	<constructor-arg name="address" ref="add1"></constructor-arg>
+   </bean>
+   
+   <bean id="add" class="com.ibm.SpringCore.Address">
+   	   <property name="address" value="jpn" />
+   	   <property name="city" value="bng" />
+   </bean>
+   
+   <bean id="add1" class="com.ibm.SpringCore.Address">
+   	   <property name="address" value="btm" />
+   	   <property name="city" value="mys" />
+   </bean>
+   
+       
+</beans>

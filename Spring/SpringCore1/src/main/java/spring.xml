@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+	<bean id="dao" class="com.ibm.SpringCore1.EmpDAOImpl">
+		<property name="username" value="root"></property>
+		<property name="password" value="root123"></property>
+	</bean>
+	       
+	<bean id="service" class="com.ibm.SpringCore1.EmpService">
+		<property name="empDao" ref="dao"></property>
+	</bean>
+	
+	<bean id="service1" class="com.ibm.SpringCore1.EmpService">
+		<property name="empDao" ref="dao"></property>
+	</bean>
+	       
+</beans>
