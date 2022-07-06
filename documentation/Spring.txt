@@ -1,0 +1,339 @@
+26th april
+----------	
+  Spring Core
+  Spring MVC
+  RestAPI
+  MongoDB
+  Spring Boot
+  JWT
+  Mockito
+  Swagger 
+  Microservices
+  Angular & Spring  
+  Spring Cloud 
+  Docker   
+  
+  
+  	Maven - POM -(Project Object Model)
+       it is a powerful project management tool. 
+     it is used for projects to build, depedency and documentation.
+
+  ANT - it is similar to maven
+
+  problem which we will not face when we go for maven
+    1. adding set of jars file for a project
+    2. creating the right project structure
+    3. building and deploy the project
+
+  Repository - packaged jar files
+      added depedency in the pom.xml file
+
+  Maven repository
+       1. local
+	         it is located in the local system. it is created by the maven it self. 
+			 user profile
+			     .m2 folder (repository) 
+			 
+       2. central repository
+	        it is located on the web. it is created by apache community itself.
+			   https://repo1.maven.org/maven2/
+			
+       3. remote repository
+				it is located on the web. Most of the libraries can be missing from the central repository
+				
+				such as JBoss library, weblogic, websphere (web server)
+				
+	POM.xml
+       it contains all the information of project and configuration information
+	   
+	   it contains all the elements
+	   
+	   project - project name - root element
+	   modelversion - version sub
+	   groupid  - sub element of the project 
+	   artifactid - package name
+	   version - sub element version
+	   
+	   packaging - jar (console application), war (web application)
+	   name - project name 
+	   url - define url of the project
+	   dependencies - root element which contains all the depedency
+	   depedency - all the jar which need to be loaded in the project
+	   scope - compile, test, runtime
+	   
+	  maven - clean - clean the project before install
+	          install - install the dependencies
+			  build - compile
+			  test - running test cases
+  	   
+	   maven -> update project -> for updating the existing project
+	   
+	Spring it is a framework which makes easy in developing the JavaEE application.
+	
+	 Java enterprise edition 
+	   lightweight framework.
+	   
+	  framework contains many such as struts, hibernate, jsp, jsf, EJB and so on. 
+  	  
+   Spring framework consists of many modules
+      IOC (inversion of control), DAO - data access object, ORM - object relational mapping, Web MVC (Model view controller) , etc...
+	  
+	IOC - dependency injection
+        design pattern (used to remove depedency in the code). 
+    code easier to test and maintain. 
+
+   class Employee {
+		Address address;
+   }
+   
+  tight coupling - (dependent)
+
+  loose coupling - dependency injection
+     can be implemented using XML configuration and Annotation
+
+  Advantages - Spring Framework
+     1. Predefined templates
+			JDBCTemplate, JPARepository
+	 2. Loose coupling
+	 3. Easy to test - unit testing (mockito)
+	 4. Light Weight 
+	 5. Fast development
+	 
+  DI - implemented using two ways
+     by setter method
+     by constructor
+
+ @AutoWired
+ @Component
+
+5th may
+--------
+
+   JDBCTemplate 
+   Spring MVC 
+
+   JDBCTemplate
+     Java Database Connectivity 
+	 
+	 connect to any database - MySQL, SQL Server, Oracle 
+	 
+	 JDBCTemplate is a powerful mechanism connecting to database and perform DML, DQL statement - insert, delete, update, select.
+	 
+	 Problems which u faced when u go for JDBC API
+	    1. open and close connection
+		2. handle exception handling
+		3. few code consume a lot of time to perform a task
+		
+		insert 
+		select 
+		
+	Advantages of using JDBCTemplate
+       it contains a list of functions to perform DML, DQL statements
+       it saves a lot of time and work.
+
+       org.springframework.dao package	  
+	 
+	    update()
+		execute()
+		query()
+	
+	Spring MVC (Model, View, Controller)
+	   it is used to build web applications. 
+	     MVC - design pattern.
+		 
+	MVC - DispatchServlet is a class which receives the incoming request and maps it to the right resource. 
+	   such as controllers, models and views.
+					 model
+					 
+    FrontController   ->   Controller    ->   View 	   
+	
+	Model - which contains the data of the application. (single object or a collection of objects)
+	Controller - @Controller  
+	        which is used to mark the class.
+			business logic of an application 
+	View - represent information in a particular format. 
+	       JSP + JSTL is used to create view pages.
+	FrontController
+		 used for dispatcherservlet class for working and also to represent the flow of the appication.
+		
+	Advantages of Spring MVC
+        1. Separate roles 
+             loose coupled 
+        2. light weight 
+              develop and deploy the application is done using maven project
+         3. powerful configuration
+         4. Resuable of business code
+         5. Rapid development
+                 faster and parallel development
+         6. Easy to test
+         7. Flexiable mapping
+                 redirect to the different pages
+				 
+				 
+11th may
+---------				 
+				 
+ RestAPI
+     
+   RestFul - Representative State Transfer 
+     creating web services - more effective to be access by any programming language
+	 Rest - architecture - not a protocol 
+ 
+     resuable of code
+	 it sends data in form of XML, JSON, Text, HTML
+     Fast 
+	 language and platform indepedent
+   
+	SOAP - simple object access protocol
+      services - transfer data in the format of XML
+
+	SOAP					RestFul
+	protocol				architecture style 
+    XML						JSON, HTML, XML, Text
+    JAX-WS					JAX-RS 
+	more bandwidth			less bandwidth
+	
+	Path - URI path 
+	PathParam - passing parameter to URI path
+	Get - get request
+	Post - post - send the data request
+	Put - modify
+	Delete - remove
+	FormParam - parameter through the form
+	QueryParam - passing the string through the URL
+	Produces - media data can be in the format of XML, JSON, Text
+	Consumes - used for generating the message body
+	
+ Spring Boot
+      is a spring module (RAD) - rapid application development - features of Spring framework
+	   
+	  it is a project which is built on top of your spring framework
+     easier and faster way of devloping the application
+    it set up the configuration and also configure the server (tomcat server)
+    you can develop application which is simple and web application 	
+		
+	 you will create a stand alone application 
+    
+     spring framework + embedded Http server - configuration = spring boot
+	 
+  you will not create any xml configuration file 
+
+	@RestController 
+
+    spring boot - spring data, spring security, spring cloud, spring integration
+  
+  Advantages
+    1. create stand alone application  .jar 
+    2. embedded http server
+    3. starter POMs - maven configuration 
+    4. no xml configuration
+    5. it offers a lot of plug ins
+    6. it comes with boilerplate
+    7. it increases the productivity and reduces the development time
+
+  Spring Data - JPA 
+  
+  JPA - java persistence API - functions and classes which is standard for ORM tool.
+   object relational mapping 
+   
+   Database independent query 
+   Automatic table creation
+   
+   @Id - primary key 
+   @Entity - Model - table
+   @Table - give table name 
+   @Column - give a column name 
+   @Join - joining the multiple classes
+   
+   Model class - ORM Tool - mapping into the database
+
+NoSQL - MongoDB
+      Open source document database 
+	  it is not a database (RDBMS) - it is nosql 
+   cross platform and document oriented database 
+       json (javascript object notation)
+	   
+	   {
+		   keyname:value
+	   }
+	   
+    high performance, easy scability 
+
+    concept of collection and document
+
+    Database
+    Collection
+    Document
+	
+	RDBMS         -       MongoDB
+	Database			  Database
+	Table				  Collection
+	Row/Record			  Document
+	Column				  Field
+	Join				  Embedded Documents
+	Primary key			  Primary key (_id)
+	
+	
+	show dbs - show all the databases
+	use sample - switching to database
+	db.createCollection("emp") - creating a collection
+	show collections; - show all the collections
+	
+	lt
+	lte
+	gte
+	gt
+	ne
+	
+
+ db.emp.remove({'name':'ram'}); - delete 
+
+db.emp.update({'name':'ram'},{$set:{'address':'del'}}); - update 
+
+db.emp1.insert([{"name":"ram","dept":"cs","sal":20000},{"name":"mahesh","dept":"me","sal":30000},{"name":"david","dept":"ec","sal":40000},{"name":"subhash","dept":"cs","sal":50000},{"name":"ravi","dept":"me","sal":10000}]);
+
+grouping
+	  
+	 db.emp1.aggregate([{$group: {_id:"$dept",sal: {$sum:"$sal"}}}]);
+
+sorting
+
+db.emp.find({},{"address":2,"name":1}).sort({"address":-1});
+
+ Swagger
+    is used to generate documentation in details for the specification of REST API.
+	
+	specific format (URL, Method, representation (parameter)) describe for the REST web services.
+	
+	application developer  - write web services (rest api) using a framework, swagger scans the entire application code and exposes the documentation with URL. 
+	
+	Client can consume this URL by using the HTTP method calls. 
+	
+	Swagger elements
+	   swagger - version specfiction 
+	   host - host service 
+	   info - description, API title
+	   basepath - URL, port number
+	   paths - different resources 
+	   definitions
+	      description
+		  version
+		  title
+
+ Spring JWT - Security
+  JWT - Json web token
+     open standard secure transmitting information between json objects. 
+  
+  it generates the JWT key which is used for authenicate the user. 
+     key - encrypted format 
+	 
+   Authorization - that the user is valid or not. 
+    allow the user to redirect to different routes. 
+
+ Spring Security - it is powerful customized authenication and
+authorization framework.
+ 
+   Filter is either the request to a resource or on the response from a resource. 
+
+   doFilter - FilterChain Interface 
+      				 

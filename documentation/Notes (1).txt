@@ -1,0 +1,226 @@
+HTML5, CSS3, Bootstrap 
+  for designing static web pages - HTML 5
+  CSS 3 - styling the content 
+  Bootstrap - responsive web pages     
+
+Javascript
+   it is a scripting langauage 
+     by default is is javascript 
+	 
+   Registration page 
+	 forms 
+	 
+	 <input type=email />
+	 City: <input type=text />
+   
+   Client side scripting - through the browser 
+      
+   Server side scripting - web server (tomcat, glassfish, jboss)
+   
+    Dialog box - alert, confirm, prompt 
+	is a case sensative scripting 
+    interpreter language 
+    it can be used to perform a particular task 
+    	
+   	javascipt 
+           var - global 
+           let - local 
+      no data type concepts 
+
+    typeof function 
+      	
+	functions are used to perform a particular task 
+      function name, parameter, return value 
+
+    Event is used to perform a task 
+		mouse
+		keyboard 
+		
+		click
+		dblclick
+		load
+		
+	 arrays - to hold a collection of data 
+
+   DOM Manipulations
+       Document Object Model 
+            HTML DOM Model 	   
+				
+				Document 
+					<html>
+						<head>
+							<title>
+							<script>
+								src attribute 
+							<style>
+						<body>
+							<h1>
+							<h2>
+     	 
+		 Objects
+		 Properties
+		 Methods
+		 Events 
+		 
+			innerHTML
+			innerText
+			outerHTML
+			outerText 
+			
+		getElementById
+		getElementByTagName
+		
+		Browser Object Model - DOM
+			window
+			location
+			history
+			navigation
+			timing (timer object) 
+			string 
+			date 
+	
+     DOM - function, class 
+	 
+	 string object 
+	 date object 
+	 math object 
+	 array object 
+	 
+	 Map - a pair of value (key and value) - (collection of data)
+	 Set - unique value (collection of data)
+	 
+  Javascript
+      Promise
+      await
+	  async
+	  Fetch API - open source 
+	  
+	JSON Server   
+	
+	
+  const studentsList=[
+	{name:'Imtesal',subjects:[{subject:'Grammer',marks:70},{subject:'Accounts',marks:55}]}
+	]
+	
+Javascript
+
+17th March
+===========
+          
+Async keyword, which you put in front of a function declaration to turn 
+it into an async function.
+ 
+An async function is a function which knows how to expect the possibility 
+of the await keyword being used to invoke asynchronous code.
+
+An async function is a function declared with the async keyword, and the await keyword is permitted within it.
+
+The await operator is used to wait for a Promise. It can only be used inside an async function within regular JavaScript code;
+
+A Promise is a proxy for a value not necessarily known when the promise is 
+created. It allows you to associate handlers with an asynchronous action's 
+eventual success value or failure reason.
+ This lets asynchronous methods return values like synchronous 
+methods: instead of immediately returning the final value,
+ the asynchronous method returns a promise to supply 
+ the value at some point in the future.
+
+A Promise is in one of these states:
+
+pending: initial state, neither fulfilled nor rejected.
+fulfilled: meaning that the operation completed successfully.
+rejected: meaning that the operation failed.
+
+The Fetch API provides an interface for fetching resources
+ (including across the network) - AJAX
+ It will seem familiar to anyone who has used XMLHttpRequest,
+ but the new API provides a more powerful and flexible feature set.
+
+API - JSON - javascript object notation - key and value
+
+{
+   "name":"ram"
+}
+
+The fetch() method takes one mandatory argument, the path to the resource you
+ want to fetch. 
+It returns a Promise that resolves to the Response to that request, 
+whether it is successful or not. You can also optionally pass in an init
+ options object as the second argument 
+You can create a request and response directly using the Request() and 
+Response() 
+constructors, but you are unlikely to do this directly. Instead,
+ these are more likely to be created as results of other API actions
+
+AJAX allows web pages to be updated asynchronously by exchanging data 
+with a web server behind the scenes. 
+This means that it is possible to update parts of a web page, without reloading the whole page.
+
+status	
+200: "OK"
+403: "Forbidden"
+404: "Page not found"
+
+Fetch Api
+=======
+unzip project 
+json-server db.json
+npm install -g json-server
+
+
+
+
+Framework - 
+Typescript
+Angular
+Unit Testing 
+NodeJS & ExpressJS
+
+Typescript 
+  is a superset of javascript 
+  open source 
+  object oriented programming language 
+  
+  microsoft (apache)
+  can be executed in any browser, host, operating system 
+  typescript .ts extension 
+   tsc - compiling typescript file 
+   
+  benefits 
+    static typing, strongly type
+    object oriented - class, object, constructor, inheritance, interface, modules 
+    fast, simple and easy to learn
+    error checking - compilation time 
+  	support libraries 
+	modules 
+	development time is saved 
+	
+	npm -g install typescript
+	
+	Modules - it contains a group of classes & functions 
+	 like resuable of code 
+ 
+export class multi {
+    private x:number
+    private y:number
+
+    constructor(x?:number,y?:number){
+        this.x = x;
+        this.y = y;
+    }
+
+    result() {
+        console.log(this.x * this.y)
+    }
+  }
+--------------------------- 
+	import {multi} from './Five';
+	let obj2 = new multi(10,20)
+	obj2.result()
+-----------------
+    tsc --module commonjs Six.ts	
+
+
+----------------------------------
+
+	

@@ -1,0 +1,42 @@
+https://hub.docker.com/
+
+Docker
+
+it is a container management service
+it is a develop, deploy, ship and run anywhere.
+developers for easily develop applications, ship them into a containers
+Features of Docker
+1. reduce the size of the development by providing smaller containers
+	each service becomes a container
+2. with containers, it becomes easier for teams across different units to work.
+3. deploy docker containers anywhere on any physcial, virtual and even on the cloud
+4. containers are lightweight, easy to scable.
+Docker Compose - it is used to define applications using multiple containers
+Docker Hub
+  it is a registry service on the cloud which will allow you to download the images that are built by other communities.
+Docker Images
+	combination between the file system and parameters.
+  docker images
+Images and Containers
+   images can exist without containers. it is read only. built the containers.
+  containers needs to run an image to exist. deploy the instances created from those templates
+Dockerfile and Docker Compose
+ dockerfile is a simple text file which contains all the commands a user could call for execution.
+  docker-compose is a tool for defining and running multi container.
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
+DigitalOceanDigitalOcean
+
+How To Install and Use Docker on Ubuntu 18.04 | DigitalOcean
+
+Docker is an application that simplifies the process of managing application processes in containers. In this tutorial, you'll install and use Docker Community Edition (CE) on Ubuntu 18.04. You'll install Docker itself, work with containers and images (213 kB)
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
+sudo chmod 666 /var/run/docker.sock
+sudo chown root:docker /var/run/docker.sock
+
+docker build -t dockerdemo-1 .
+docker run --network=host dockerdemo-1:latest
+

@@ -1,0 +1,126 @@
+7th April
+===========	
+  MySQL
+      Database  - it is used to store the data
+		RDBMS - relational database management system 
+		OODBMS - object oriented database management system 
+		
+		it is a open source. collection of data , objects 
+	  
+		File - flat file (.txt, .csv) 
+	  
+	  	  Is a open source. which is a RDBMS (relational database management system)
+	  
+	  SQL - structured query language
+		
+	 DDL - data definition language
+		  create, alter, drop
+     DML - data manipulation language
+		 insert, delete, update
+     DQL - data query language
+		 select
+     TCL - transaction control language 	 
+		commit, rollback
+		
+	 Database - collection of data, objects 
+			table, view, procedures, triggers 
+		
+     table - rows - tuple, records 
+	         columns - fields
+			 
+	command line, workbench - UI 
+
+   filter column wise
+		we need to define the query 
+		   get all the columns of the table 
+		   
+		  select * from tablename 
+   
+     changing the column heading 
+       select first_name "employee name",email,salary from employees;
+   
+      arithmatic operators 
+		+,-,*,/,%
+   
+      select first_name,salary,salary+(salary*0.1) "incr 10%",salary +(salary *0.15) "incr 15%" from employees;
+   
+   filter row wise    
+      you should define a condition for fetching the data
+	  
+	  where clause - filtering the records 
+	  
+	  syntax:
+	      select * from tablename 
+		  where condition 
+		  
+	 relational - >,<,>=,<=,=, <> | !=
+   
+       mysql> select first_name,email,salary,hire_date from employees
+    -> where hire_date > '1998-06-30';
+
+
+     logical - and, or, not
+		mysql> select first_name,department_id,salary from employees
+    -> where department_id = 10 or department_id = 20;
+	
+	mysql> select first_name,salary from employees
+    -> where salary > 10000 and salary < 15000;
+	
+   mysql> select first_name,department_id,salary from employees
+    -> where not (department_id = 50 or department_id = 80);
+	
+     special operators - in, like, between, is 	 
+           in - list of value 
+		   between - range 
+		   is - is used to check for null / not null value 
+		   like - pattern search
+		      _, % 
+			  
+	mysql> select first_name,department_id,salary,commission_pct from employees
+    -> where commission_pct is not null;
+
+    mysql> select first_name,department_id,salary from employees
+    -> where first_name like '___a%';
+
+	mysql> select first_name,department_id,salary from employees
+    -> where salary not between 10000 and 20000;
+	
+    Order by 
+		sorting the information in ascending or descending order 
+		
+		syntax:
+			select 
+			where 
+			order by 
+
+      mysql> select first_name,department_id,salary from employees
+    -> where salary > 10000
+    -> order by department_id, salary desc
+    -> ;
+
+    Aggregate functions
+    Group by 
+    having 
+    Joins
+    sub queries 
+    DDL, DML 
+	
+	
+	mysql> select department_id,job_id,sum(salary) from employees
+    -> where salary > 7000
+    -> group by department_id,job_id
+    -> order by department_id;
+New
+
+SR-Janakiram  11:32 AM
+mysql> select department_id,job_id,sum(salary) from employees where salary > 5000 group by department_id,job_id having sum(salary) > 30000 order by department_id;
+
+
+select first_name,department_name from employees join departments on employees.department_id = departments.department_id;
+
+mysql> select first_name,department_name,city from employees join departments on employees.department_id = departments.department_id join locations on departments.location_id = locations.location_id;
+mysql> select e.first_name,m.first_name from employees e join employees m on e.manager_id = m.employee_id;
+		
+mysql> select first_name,department_id from employees where department_id in (select department_id from departments where department_name = 'Marketing' or department_name = 'ST_CLERK');
+
+mysql> create table student ( sid int(10) not null, name varchar(30), dob date, fees decimal(10,2) );

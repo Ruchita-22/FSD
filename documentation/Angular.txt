@@ -1,0 +1,296 @@
+22-march
+=======
+Angular 
+		Structure 
+		Components
+		Module 
+		Directives
+		Binding
+		Pipes
+		Routing 
+		Component Interaction
+		Services
+		HttpClient
+		Unit Testing - Jasmine , karmia
+		custom directives 
+		
+3 assignment in angular 		
+
+npm -g install @angular/cli
+
+ng new projectname
+
+
+24th March
+==========
+Angular
+	AngularJS - javascript framework
+	Angualar 2,4,6,7,8,11 latest version
+	
+	most popular framework in javascript and it is a platform for developig client side mobile (responsive) and desktop web apps
+	
+	SPA-single page application 
+	   loads only a single HTML page and dynamically updates the content of the page as the user interacts. 
+	   it is faster and it does not reloaded the page again and again
+	   
+  Angular
+    it is open source
+    it is client side typescript based javascript framework 
+    	
+   Features
+      1. mobile application
+      2. support typescript
+      3. multiple framework libraries
+      4. angular materials - (UI pages)
+	  5. high speed, performance 
+	  6. productivity 
+	  7. IDEs 
+	  8. Testing - jasmine, karmi is the tools 
+	  
+	 npm install -g @angular/cli@latest
+	 
+   Angular - Architecture
+        Modules - collection of objects (component,services, classes)
+        Components - define the task 
+			4 files 
+				.css - 
+				.ts - typescript code
+				.specs.ts - testing 
+				.html
+   		Metadata
+			@Component 
+				selector 
+				templateUrl 
+				styleUrl 
+		Templates
+			integration with the HTML 
+			
+			<h1> {{"Hi"}} <h1>
+		Data binding
+			extract the data from the variables
+        Directives
+			ngIf, ngFor, ngSwitch 
+		Services - help in getting the external data (api)
+        HttpClient
+			extract data from the external resources
+		
+	AngularJS										Angular
+	javascript based front web application			typescript based web appl 
+	controller										components
+	does not support dynamic loading				dynamic loading of the page
+	using HTML pages 								expressions, directives
+	does not support server side 					server side programming
+
+Structure angular
+	   node_modules - it contains all the libraries which are supported by angular
+			npm install
+	   src -  modules, component and so on
+	   e2e - writing test cases for the UI testing
+			Protractor
+	   index.html
+	   main.ts
+	   app - component 
+		.html - html element along with the directives, data binding
+		.css - styles
+		.ts - logic (typescript)
+		.specs.ts - unit testing
+	  favicon.ico
+	   assets - which contains all the images 
+	   app.module.ts
+	   package.json
+       package-lock.json
+       angular.json
+       .gitignore
+	   karma.config.js - unit testing tool for running the test cases
+	   test.ts - jasmine framework 
+	   style.css
+	   tsconfig.json
+	   tsconfig.app.json
+ 
+   Binding, Directives, Templates, Components 
+   ==================================================================
+index.html --> 
+main.ts -->which module is going to load --> 
+AppModule-->load other module and then load -->
+AppComponent
+=================================================================
+   
+   ng g c test
+   
+   Component
+	  4 files
+		.ts, specs.ts, .css, .html
+		
+	String interpolation
+		which is used to display the value of a variable 
+		   {{variablename}}
+	 
+    Data Binding
+		String interpolation - one binding {{}}
+		Event	
+			basically used to perform a particular task
+			
+			different events are (mouseover)
+				click
+				dbclick
+				mouseover
+				mouseout
+			
+		property --[src]
+			image want to load the image the src property for the element 
+			
+		databinding 
+			one way
+			two way--[(ngModel)]
+				value to variable / variable to value
+
+29th March
+==========		
+     Directives
+		Component 
+			@Component
+				
+		Structural
+		  *ngIf - defining condition (only once)
+		  
+		  *ngSwitch - switch case statement (multiple cases) 
+		  
+		  *ngFor - navigate element by element in the array 
+		  
+		Attribute
+			ngClass - class selector css 
+			ngStyle - defining a style and apply the css style
+
+	custom template 
+		which is used to define a element which can be referred in the else statement of the if 
+		
+	Angular Material Design
+	
+    Services
+	     the code can be used everywhere in the project. across the components. 
+		 can have properties, methods 
+		 resuable of code 
+
+31st march
+==========		 
+      HttpClient - hypertext transfer protocol
+		it is used to fetch external data using post, get and so on.
+	  HttpModule - access the external data into the service. 	
+
+	  Observable (library - RXJS)
+          pass data in sync, async 
+        return the data which u can read it		  
+
+	Subscribe - which is used to obtain or generate values or messages to be published. 
+
+	 JSON - javascript object notation 
+
+	npm install -g json-server 
+
+		get - 
+		post - 
+5th April
+==========	
+	Registration page 
+	   name, address 
+	   
+	 Routing
+         navigating between the component 
+       
+     app-routing.module.ts	   
+	    
+    Forms
+	   it is used to handle the user information.
+      used to perform a particular task or any data entry task.
+	  
+	 two types
+       1. Template Driven
+	       used for simple app
+			login, registration, change password 
+			
+		  it can't be scable 
+          unstrcutured		  
+		   mutable
+		   
+       2. Reactive 	   
+			more robust, more scalable, resuable, testable.
+			reactive patterns 
+			structured 
+			immutable
+			
+	Reactive Forms
+	
+		FormGroup - collection of values from the form control
+		FormControl - fetch value and define the individual validation
+		FormArray - values in array object
+		ControlValueAccessor - create a gap between the element and form control 
+		
+	 properties 
+		dirty - it will return true when the value is changed in the control 
+		invalid - will return true if the value is invalid on the control 
+		touched - it will return true when the user is visited the control 
+  
+	Pipes
+    Component Interaction
+	Unit Testing
+	Custom Directives 
+    Guarding 
+	
+	Component, Modules, Binding, Directives, Services, HttpClient, Routing, Forms, Angular Material Design
+	
+	
+	
+19th April
+===========	
+	Angular 
+	binding
+	directives 
+	components
+	modules
+	services
+	httpclient
+	routing 
+	material design
+	forms 
+		template, reactive 
+		
+	Custom Directives 
+     extended functionality of HTML.  
+	 
+	   directive function
+	   
+	  Element directive
+      Attribute directive
+
+   You will be replacing the component directive with @directive    
+
+   @Directive - configuration property - css attribute selector
+    ElementRef - injecting the DOM element 
+			using nativeElement property 
+    Listener  - handling the events 
+	
+	<h1 align=left>
+	
+	Unit Testing 
+ Testing
+    unit testing is a type of software testing
+	where we can test individual components 
+	
+	a unit may be paritcular to a function, program, etc..
+	
+	you are testing a piece of code (behaviour of the function or class)
+	
+	Jasmine test framework
+	Karma tool for running the test cases
+	
+	ng test
+	
+	.specs.ts (testing file)
+
+    Component interaction 
+		Passing value from the parent to the child component 
+		
+	    @Input 
+        @Output 
+
+     @Viewchild 		
